@@ -2,7 +2,6 @@
 
 import sqlite3
 from sqlite3 import Error
-from models import Weapon, Hit, Stat, Target
 import xml.etree.ElementTree as ET
 import argparse
 import time
