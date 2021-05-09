@@ -165,7 +165,11 @@ def process_tacview_file(filename):
 			secondaryType = secondaryObject.find('Type').text
 			secondaryName = secondaryObject.find('Name').text
 			secondaryPilot = getattr(secondaryObject.find('Pilot'), 'text', 'n/a')
-			secondaryCoalition = secondaryObject.find('Coalition').text
+			if secondaryObject.find('Coalition') is not None:
+				secondaryCoalition = secondaryObject.find('Coalition').text
+			else:
+				secondaryCoalition = ""
+				
 			secondaryCountry = secondaryObject.find('Country').text
 			secondaryParent = getattr(
 				secondaryObject.find('Parent'), 'text', 'n/a')
