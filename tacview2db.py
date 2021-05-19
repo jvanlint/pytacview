@@ -169,8 +169,12 @@ def process_tacview_file(filename):
 				secondaryCoalition = secondaryObject.find('Coalition').text
 			else:
 				secondaryCoalition = ""
-				
-			secondaryCountry = secondaryObject.find('Country').text
+			
+			if secondaryObject.find('Country') is not None:
+				secondaryCountry = secondaryObject.find('Country').text
+			else:
+				secondaryCountry = ""
+			
 			secondaryParent = getattr(
 				secondaryObject.find('Parent'), 'text', 'n/a')
 			secondaryGroup = getattr(secondaryObject.find('Group'), 'text', 'n/a')
